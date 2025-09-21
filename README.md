@@ -115,4 +115,4 @@ npm run dev
 - All contributors who have helped with the project
 
 ## Contact
-Your Name - [@ManushaKavishan](https://github.com/ManushaKavishan)
+[@ManushaKavishan](https://github.com/ManushaKavishan)
