@@ -29,9 +29,13 @@ jobs:
 
             cd ~/BookNexus
 
-            # Reset and pull latest code
-            git reset --hard
-            git pull origin main
+            # ---- THE FIX: Force Sync with GitHub ----
+            # Fetch the latest changes from the remote without trying to merge yet
+            git fetch origin main
+            
+            # Hard reset the local pointer to match the remote exactly.
+            # This overwrites any "divergent" history or conflicts.
+            git reset --hard origin/main
 
             # ---- Backend Deployment ----
             cd backend
