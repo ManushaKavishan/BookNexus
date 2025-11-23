@@ -5,9 +5,18 @@ import bcrypt from 'bcrypt';
 interface UserAttributes {
   id: number;
   name: string;
-  email: string;
+  email: string | null;
   password: string;
-  role: 'user' | 'admin';
+  role: 'user' | 'admin' | 'student';
+  registrationNumber?: string;
+  faculty?: string;
+  courseOfStudy?: string;
+  intakeBatch?: string;
+  indexNumber?: string;
+  title?: string;
+  lastName?: string;
+  nameWithInitials?: string;
+  gender?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -20,9 +29,18 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   }
   public id!: number;
   public name!: string;
-  public email!: string;
+  public email!: string | null;
   public password!: string;
-  public role!: 'user' | 'admin';
+  public role!: 'user' | 'admin' | 'student';
+  public registrationNumber?: string;
+  public faculty?: string;
+  public courseOfStudy?: string;
+  public intakeBatch?: string;
+  public indexNumber?: string;
+  public title?: string;
+  public lastName?: string;
+  public nameWithInitials?: string;
+  public gender?: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 
@@ -45,18 +63,55 @@ User.init(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
         isEmail: true,
       },
+    },
+    registrationNumber: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+    faculty: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    courseOfStudy: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    intakeBatch: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    indexNumber: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    nameWithInitials: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     role: {
-      type: DataTypes.ENUM('user', 'admin'),
+      type: DataTypes.ENUM('user', 'admin', 'student'),
       allowNull: false,
       defaultValue: 'user',
     },

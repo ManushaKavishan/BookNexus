@@ -3,11 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import { UserGroupIcon } from '@heroicons/react/24/outline'; // Add this import
 
 import { 
-  MoonIcon, 
-  SunIcon, 
   Bars3Icon, 
   XMarkIcon,
   UserCircleIcon,
@@ -17,7 +14,7 @@ import {
 
 const Navbar: React.FC = () => {
   const { user, logout, isAuthenticated } = useAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -26,16 +23,16 @@ const Navbar: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'Books', path: '/books' },
     { name: 'Search', path: '/search' },
-      {
-    name: 'Librarians',
-    path: '/admin/librarians',
-    icon: UserGroupIcon
-  }
   ];
 
   const adminNavigation = [
-    // { name: 'Dashboard', path: '/admin/dashboard' },
     { name: 'Manage Books', path: '/admin/books' },
+    { name: 'Students', path: '/admin/students' },
+    { name: 'Librarians', path: '/admin/librarians' },
+  ];
+
+  const studentNavigation = [
+    { name: 'My Books', path: '/my-books' },
   ];
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
@@ -126,6 +123,24 @@ const Navbar: React.FC = () => {
                   ))}
                 </>
               )}
+
+              {user?.role === 'student' && (
+                <>
+                  {studentNavigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className={`${
+                        location.pathname === item.path
+                          ? 'border-emerald-500 text-gray-900 dark:text-white'
+                          : 'border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200'
+                      } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </>
+              )}
             </div>
           </div>
           
@@ -158,12 +173,17 @@ const Navbar: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-10"
+                      className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50"
                     >
                       <div className="py-1">
                         <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700">
                           <p className="font-medium">{user?.name}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
+                          {user?.role === 'student' && user?.registrationNumber ? (
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Reg: {user.registrationNumber}</p>
+                          ) : (
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
+                          )}
+                          <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 capitalize">{user?.role}</p>
                         </div>
                         <Link
                           to="/profile"
