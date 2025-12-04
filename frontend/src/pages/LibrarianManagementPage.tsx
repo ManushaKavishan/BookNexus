@@ -65,7 +65,12 @@ const LibrarianManagementPage: React.FC = () => {
   return (
     <MainLayout>
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKFN8l3DQK01Nk6btuEwAhXYIhNWwH1hRfKw&s"
+            alt="Librarian icon"
+            className="h-10 w-10 mr-3 rounded-md"
+          />
           Librarian Management
         </h1>
 
