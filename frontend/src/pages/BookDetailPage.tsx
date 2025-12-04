@@ -54,8 +54,12 @@ const BookDetailPage: React.FC = () => {
       await checkoutBook(book.id, registrationNumber);
       refetch();
       toast.success('Book checked out successfully');
-    } catch {
-      toast.error('Failed to checkout book');
+    } catch (error) {
+      // Show backend message when available
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const errAny: any = error;
+      const message = errAny?.response?.data?.message || 'Failed to checkout book';
+      toast.error(message);
     }
   };
 

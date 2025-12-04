@@ -10,6 +10,7 @@ router.get('/', bookController.getBooks);
 router.get('/search', bookController.searchBooks);
 router.get('/ai-search', bookController.searchBooksWithAI); // Specific route first
 router.get('/my-checkouts', protect, bookController.getMyCheckouts); // Student checkouts
+router.get('/active-checkouts', protect, admin, bookController.getActiveCheckouts); // Admin: all active checkouts
 router.get('/:id/summary', bookController.getBookSummary); // Put routes with parameters after
 router.get('/:id/checkouts', protect, admin, bookController.getBookCheckouts); // Book's current checkouts
 router.get('/:id/checkout-history', protect, admin, bookController.getBookCheckoutHistory); // Book's checkout history

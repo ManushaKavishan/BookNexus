@@ -231,6 +231,14 @@ export const checkoutBook = async (req: Request, res: Response) => {
     if (!student) {
       return res.status(404).json({ message: 'Student not found with this registration number' });
     }
+    // Enforce limit: a student can have at most 3 active (not returned) checkouts
+    const activeCount = await Checkout.count({
+      where: { userId: student.id, returnedAt: { [Op.eq]: null as any } }
+    });
+
+    if (activeCount >= 3) {
+      return res.status(400).json({ message: 'The student has borrowed 3 books!' });
+    }
 
     if (book.availableCopies > 0) {
       // Create checkout record
@@ -447,6 +455,38 @@ export const getBookCheckoutHistory = async (req: Request, res: Response) => {
     });
 
     res.json(checkouts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+// @desc    Get all active checkouts (students with currently borrowed books)
+// @route   GET /api/books/active-checkouts
+// @access  Private/Admin
+export const getActiveCheckouts = async (req: Request, res: Response) => {
+  try {
+    const checkouts = await Checkout.findAll({
+      where: {
+        returnedAt: { [Op.eq]: null as any }
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'name', 'registrationNumber']
+        },
+        {
+          model: Book,
+          attributes: ['id', 'title']
+        }
+      ],
+      order: [['checkedOutAt', 'DESC']]
+    });
+
+    // Total pending returns is simply the number of active checkouts
+    const pendingCount = checkouts.length;
+
+    res.json({ pendingCount, checkouts });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });

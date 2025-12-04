@@ -17,6 +17,7 @@ import SearchPage from './pages/SearchPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import AdminBooksPage from './pages/AdminBooksPage';
 import BookFormPage from './pages/BookFormPage';
+import BooksStatusPage from './pages/BooksStatusPage';
 import NotFoundPage from './pages/NotFoundPage';
 import LibrarianManagementPage from './pages/LibrarianManagementPage';
 import StudentManagementPage from './pages/StudentManagementPage';
@@ -83,6 +84,11 @@ const App: React.FC = () => {
               <Route path="/admin/books" element={
                 <AdminRoute>
                   <AdminBooksPage />
+                </AdminRoute>
+              } />
+              <Route path="/admin/books-status" element={
+                <AdminRoute>
+                  <BooksStatusPage />
                 </AdminRoute>
               } />
               <Route path="/admin/books/new" element={

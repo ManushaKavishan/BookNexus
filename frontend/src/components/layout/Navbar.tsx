@@ -29,6 +29,7 @@ const Navbar: React.FC = () => {
     { name: 'Manage Books', path: '/admin/books' },
     { name: 'Students', path: '/admin/students' },
     { name: 'Librarians', path: '/admin/librarians' },
+    { name: 'Books Status', path: '/admin/books-status' },
   ];
 
   const studentNavigation = [

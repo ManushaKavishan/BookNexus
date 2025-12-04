@@ -77,3 +77,9 @@ export const getBookCheckoutHistory = async (id: number): Promise<Checkout[]> =>
   const response = await api.get(`/books/${id}/checkout-history`);
   return response.data;
 };
+
+// Get all active checkouts (admin)
+export const getActiveCheckouts = async (): Promise<{ pendingCount: number; checkouts: Checkout[] }> => {
+  const response = await api.get('/books/active-checkouts');
+  return response.data;
+};
