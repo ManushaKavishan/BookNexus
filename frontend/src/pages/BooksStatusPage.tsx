@@ -43,9 +43,11 @@ const BooksStatusPage: React.FC = () => {
               <p className="text-4xl font-bold text-emerald-700 dark:text-emerald-300 mt-2">{isLoading ? '...' : pendingCount}</p>
             </div>
             <div className="p-3 bg-emerald-100 dark:bg-emerald-900 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-emerald-600 dark:text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v4a1 1 0 001 1h3m10 0h3a1 1 0 001-1V7m-8 10v-6m0 0L9 9m3 2l3-2" />
-              </svg>
+            <img 
+                src="https://cdn-icons-png.freepik.com/256/12398/12398140.png?semt=ais_white_label" 
+                alt="Handover icon" 
+                className="h-15 w-15"
+            />
             </div>
           </div>
           <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">Total number of books currently checked out and awaiting return.</p>
