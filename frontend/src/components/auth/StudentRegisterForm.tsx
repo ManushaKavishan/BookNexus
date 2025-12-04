@@ -75,8 +75,7 @@ const StudentRegisterForm: React.FC<StudentRegisterFormProps> = ({ onSuccess }) 
           <label htmlFor="faculty" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Faculty
           </label>
-          <input
-            type="text"
+          <select
             id="faculty"
             name="faculty"
             value={formData.faculty}
@@ -85,8 +84,15 @@ const StudentRegisterForm: React.FC<StudentRegisterFormProps> = ({ onSuccess }) 
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
                      focus:ring-2 focus:ring-emerald-500 focus:border-transparent
                      dark:bg-gray-700 dark:text-white"
-            placeholder="e.g., Faculty of Science"
-          />
+          >
+            <option value="">Select Faculty</option>
+            <option value="Faculty of Science">Faculty of Science</option>
+            <option value="Faculty of Arts">Faculty of Arts</option>
+            <option value="Faculty of Engineering">Faculty of Engineering</option>
+            <option value="Faculty of Management">Faculty of Management</option>
+            <option value="Faculty of Technology">Faculty of Technology</option>
+            <option value="Faculty of Medicine">Faculty of Medicine</option>
+          </select>
         </div>
 
         <div>
