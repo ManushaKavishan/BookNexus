@@ -22,7 +22,7 @@ const books = [
     researchArea: "N/A",
     location: "Shelf B-15",
     totalCopies: 8,
-    availableCopies: 5,
+    availableCopies: 8,
     description: "Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling. The novels chronicle the lives of a young wizard, Harry Potter, and his friends, Ron Weasley and Hermione Granger, all of whom are students at Hogwarts School of Witchcraft and Wizardry."
   },
   {
@@ -34,7 +34,7 @@ const books = [
     researchArea: "IT Related Books",
     location: "COM-1",
     totalCopies: 3,
-    availableCopies: 1,
+    availableCopies: 3,
     description: null
   },
   {
@@ -46,7 +46,7 @@ const books = [
     researchArea: "IT Related Books",
     location: "COM-1",
     totalCopies: 2,
-    availableCopies: 1,
+    availableCopies: 2,
     description: null
   },
   {
@@ -57,8 +57,8 @@ const books = [
     subject: "Web Development",
     researchArea: "IT Related Books",
     location: "COM-1",
-    totalCopies: 1,
-    availableCopies: 1,
+    totalCopies: 10,
+    availableCopies: 10,
     description: "The Definitive Guide"
   },
   {
@@ -70,7 +70,7 @@ const books = [
     researchArea: "History",
     location: "H-1",
     totalCopies: 3,
-    availableCopies: 1,
+    availableCopies: 3,
     description: "sad book"
   },
   {
@@ -82,7 +82,7 @@ const books = [
     researchArea: "Educational",
     location: "EM-1",
     totalCopies: 5,
-    availableCopies: 2,
+    availableCopies: 5,
     description: " A Very Short Introduction"
   },
   {
@@ -94,7 +94,7 @@ const books = [
     researchArea: "Educational",
     location: "ES-2",
     totalCopies: 4,
-    availableCopies: 3,
+    availableCopies: 4,
     description: null
   },
   {
@@ -118,7 +118,7 @@ const books = [
     researchArea: "Non-Fiction",
     location: "NF-2",
     totalCopies: 4,
-    availableCopies: 3,
+    availableCopies: 4,
     description: "Harari's work places human history within a framework, with the natural sciences setting limits for human activity and social sciences shaping what happens within those bounds. The academic discipline of history is the account of cultural change."
   },
   {
@@ -130,7 +130,7 @@ const books = [
     researchArea: "Science",
     location: "S-1",
     totalCopies: 4,
-    availableCopies: 3,
+    availableCopies: 4,
     description: "A Brief History of Time: From the Big Bang to Black Holes is a book on cosmology by the physicist Stephen Hawking, first published in 1988"
   },
   {
@@ -141,7 +141,7 @@ const books = [
     subject: "Science & Technology",
     researchArea: "Science",
     location: "S-1",
-    totalCopies: 3,
+    totalCopies: 4,
     availableCopies: 4,
     description: "A Handbook of Agile Software Craftsmanship"
   },
@@ -154,7 +154,7 @@ const books = [
     researchArea: "Children's Books",
     location: "C-1",
     totalCopies: 10,
-    availableCopies: 3,
+    availableCopies: 10,
     description: null
   },
   {
@@ -166,7 +166,7 @@ const books = [
     researchArea: "IT Related Books",
     location: "COM-1",
     totalCopies: 2,
-    availableCopies: 1,
+    availableCopies: 2,
     description: null
   },
   {
@@ -178,7 +178,7 @@ const books = [
     researchArea: "Children's Books",
     location: "C-2",
     totalCopies: 3,
-    availableCopies: 1,
+    availableCopies: 3,
     description: null
   },
   {
@@ -190,7 +190,7 @@ const books = [
     researchArea: "Self-Development",
     location: "M-1",
     totalCopies: 3,
-    availableCopies: 1,
+    availableCopies: 3,
     description: null
   },
   {
@@ -202,7 +202,7 @@ const books = [
     researchArea: "Self-Development",
     location: "S-1",
     totalCopies: 3,
-    availableCopies: 1,
+    availableCopies: 3,
     description: null
   },
   {
@@ -214,7 +214,7 @@ const books = [
     researchArea: "Religion & Philosophy",
     location: "OTH-12",
     totalCopies: 2,
-    availableCopies: 1,
+    availableCopies: 2,
     description: null
   },
   {
@@ -225,8 +225,8 @@ const books = [
     subject: "Religion & Philosophy",
     researchArea: "Religion & Philosophy",
     location: "OTH-12",
-    totalCopies: 1,
-    availableCopies: 1,
+    totalCopies: 10,
+    availableCopies: 10,
     description: null
   },
   {
@@ -238,7 +238,7 @@ const books = [
     researchArea: "Fiction",
     location: "f2",
     totalCopies: 2,
-    availableCopies: 0,
+    availableCopies: 2,
     description: null
   },
   {
@@ -250,7 +250,7 @@ const books = [
     researchArea: "Fiction",
     location: "f2",
     totalCopies: 3,
-    availableCopies: 2,
+    availableCopies: 3,
     description: null
   },
   {
@@ -262,7 +262,7 @@ const books = [
     researchArea: "Fiction",
     location: "f2",
     totalCopies: 4,
-    availableCopies: 3,
+    availableCopies: 4,
     description: null
   },
   {
@@ -274,7 +274,7 @@ const books = [
     researchArea: "Science",
     location: "S-1",
     totalCopies: 4,
-    availableCopies: 3,
+    availableCopies: 4,
     description: null
   },
   {
@@ -286,7 +286,7 @@ const books = [
     researchArea: "IT Related Books",
     location: "COM-1",
     totalCopies: 3,
-    availableCopies: 2,
+    availableCopies: 3,
     description: null
   },
   {
@@ -298,7 +298,7 @@ const books = [
     researchArea: "Fiction",
     location: "f1",
     totalCopies: 4,
-    availableCopies: 2,
+    availableCopies: 4,
     description: null
   },
   {
@@ -310,7 +310,7 @@ const books = [
     researchArea: "Non-Fiction",
     location: "NF-2",
     totalCopies: 4,
-    availableCopies: 0,
+    availableCopies: 4,
     description: "Educated is a 2018 memoir by American author Tara Westover. Westover recounts overcoming her survivalist Mormon family in order to go to college and emphasizes the importance of education in enlarging her world"
   },
   {
@@ -322,7 +322,7 @@ const books = [
     researchArea: "IT Related Books",
     location: "COM-1",
     totalCopies: 3,
-    availableCopies: 0,
+    availableCopies: 3,
     description: "Design and Build Websites"
   }
 ];
